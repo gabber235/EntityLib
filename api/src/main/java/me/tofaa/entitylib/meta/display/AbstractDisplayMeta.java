@@ -23,7 +23,7 @@ public abstract class AbstractDisplayMeta extends EntityMeta {
 
     public AbstractDisplayMeta(int entityId, Metadata metadata) {
         super(entityId, metadata);
-        isVersionNewer(ServerVersion.V_1_19_3);
+        ensureVersionNewer(ServerVersion.V_1_19_3);
     }
 
     public int getInterpolationDelay() {

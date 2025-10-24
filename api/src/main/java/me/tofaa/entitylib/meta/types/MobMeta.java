@@ -27,22 +27,22 @@ public class MobMeta extends LivingEntityMeta {
     }
 
     public boolean isLeftHanded() {
-        EntityMeta.isVersionNewer(ServerVersion.V_1_9);
+        EntityMeta.ensureVersionNewer(ServerVersion.V_1_9);
         return getMaskBit(OFFSET, IS_LEFT_HANDED_BIT);
     }
 
     public void setLeftHanded(boolean value) {
-        EntityMeta.isVersionNewer(ServerVersion.V_1_9);
+        EntityMeta.ensureVersionNewer(ServerVersion.V_1_9);
         setMaskBit(OFFSET, IS_LEFT_HANDED_BIT, value);
     }
 
     public boolean isAggressive() {
-        EntityMeta.isVersionNewer(ServerVersion.V_1_14);
+        EntityMeta.ensureVersionNewer(ServerVersion.V_1_14);
         return getMaskBit(OFFSET, IS_AGGRESSIVE_BIT);
     }
 
     public void setAggressive(boolean value) {
-        EntityMeta.isVersionNewer(ServerVersion.V_1_14);
+        EntityMeta.ensureVersionNewer(ServerVersion.V_1_14);
         setMaskBit(OFFSET, IS_AGGRESSIVE_BIT, value);
     }
 

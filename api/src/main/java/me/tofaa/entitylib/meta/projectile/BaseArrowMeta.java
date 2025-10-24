@@ -26,22 +26,22 @@ public class BaseArrowMeta extends EntityMeta {
     }
 
     public boolean isNoClip() {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         return getMaskBit(OFFSET, NO_CLIP_BIT);
     }
 
     public void setNoClip(boolean value) {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         setMaskBit(OFFSET, NO_CLIP_BIT, value);
     }
 
     public int getPierceLevel() {
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
         return super.metadata.getIndex(offset(OFFSET,1), 0);
     }
 
     public void setPierceLevel(int value) {
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
         super.metadata.setIndex(offset(OFFSET,1), EntityDataTypes.INT, value);
     }
 

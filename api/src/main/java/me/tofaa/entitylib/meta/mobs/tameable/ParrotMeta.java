@@ -13,7 +13,7 @@ public class ParrotMeta extends TameableMeta {
 
     public ParrotMeta(int entityId, Metadata metadata) {
         super(entityId, metadata);
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
     }
 
     @NotNull

@@ -15,12 +15,12 @@ public class OcelotMeta extends AgeableMeta {
     }
 
     public boolean isTrusting() {
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
         return super.metadata.getIndex(OFFSET, false);
     }
 
     public void setTrusting(boolean value) {
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
         super.metadata.setIndex(OFFSET, EntityDataTypes.BOOLEAN, value);
     }
 

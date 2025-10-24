@@ -200,7 +200,7 @@ public class EntityMeta implements EntityMetadataProvider {
         return metadata.createPacket();
     }
 
-    protected static void isVersionNewer(ServerVersion version) {
+    protected static void ensureVersionNewer(ServerVersion version) {
         if (EntityLib.getOptionalApi().isPresent()) {
             if (!EntityLib.getApi().getPacketEvents().getServerManager().getVersion().is(VersionComparison.NEWER_THAN, version)) {
                 throw new InvalidVersionException("This method is only available for versions newer than " + version.name() + ".");
@@ -209,6 +209,41 @@ public class EntityMeta implements EntityMetadataProvider {
         if (!PacketEvents.getAPI().getServerManager().getVersion().is(VersionComparison.NEWER_THAN, version)) {
             throw new InvalidVersionException("This method is only available for versions newer than " + version.name() + ".");
         }
+    }
+
+    protected static void ensureVersionNewerOrEquals(ServerVersion version) {
+        if (EntityLib.getOptionalApi().isPresent()) {
+            if (!EntityLib.getApi().getPacketEvents().getServerManager().getVersion().is(VersionComparison.NEWER_THAN_OR_EQUALS, version)) {
+                throw new InvalidVersionException("This method is only available for versions newer than or equals to " + version.name() + ".");
+            }
+        }
+        if (!PacketEvents.getAPI().getServerManager().getVersion().is(VersionComparison.NEWER_THAN_OR_EQUALS, version)) {
+            throw new InvalidVersionException("This method is only available for versions newer than or equals to " + version.name() + ".");
+        }
+    }
+
+    protected static void ensureVersionBetween(ServerVersion startVersion, ServerVersion endVersion) {
+        if (EntityLib.getOptionalApi().isPresent()) {
+            if (!EntityLib.getApi().getPacketEvents().getServerManager().getVersion().is(VersionComparison.NEWER_THAN_OR_EQUALS, startVersion)) {
+                throw new InvalidVersionException("This method is only available for versions newer than or equals to " + startVersion.name() + ".");
+            }
+            if (!EntityLib.getApi().getPacketEvents().getServerManager().getVersion().is(VersionComparison.OLDER_THAN_OR_EQUALS, endVersion)) {
+                throw new InvalidVersionException("This method is only available for versions older than or equals to " + endVersion.name() + ".");
+            }
+        }
+        if (!PacketEvents.getAPI().getServerManager().getVersion().is(VersionComparison.NEWER_THAN_OR_EQUALS, startVersion)) {
+            throw new InvalidVersionException("This method is only available for versions newer than or equals to " + startVersion.name() + ".");
+        }
+        if (!PacketEvents.getAPI().getServerManager().getVersion().is(VersionComparison.OLDER_THAN_OR_EQUALS, endVersion)) {
+            throw new InvalidVersionException("This method is only available for versions older than or equals to " + endVersion.name() + ".");
+        }
+    }
+
+    protected static boolean isVersionNewerOrEquals(ServerVersion version) {
+        if (EntityLib.getOptionalApi().isPresent()) {
+            return EntityLib.getApi().getPacketEvents().getServerManager().getVersion().is(VersionComparison.NEWER_THAN_OR_EQUALS, version);
+        }
+        return PacketEvents.getAPI().getServerManager().getVersion().is(VersionComparison.NEWER_THAN_OR_EQUALS, version);
     }
 
     protected static boolean isVersion(ServerVersion version, VersionComparison comparison) {
