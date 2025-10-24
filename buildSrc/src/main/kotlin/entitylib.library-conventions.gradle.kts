@@ -52,11 +52,19 @@ tasks {
 publishing {
     repositories {
         maven {
-            name = "pvphub-maven-tofaa"
-            url = uri("https://maven.pvphub.me/tofaa")
-            credentials {
-                username = System.getenv("PVPHUB_MAVEN_USERNAME")
-                password = System.getenv("PVPHUB_MAVEN_SECRET")
+            name = "TypewriterBeta"
+            url = uri("https://maven.typewritermc.com/beta")
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+        maven {
+            name = "TypewriterReleases"
+            url = uri("https://maven.typewritermc.com/releases")
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
             }
         }
     }

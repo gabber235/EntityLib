@@ -8,8 +8,9 @@ You can easily use EntityLib platformless by using the `api` or `common` module
 
 If you like EntityLib and or want to sponsor me, visit my [ko-fi page](https://ko-fi.com/tofaa) :D 
 
-EntityLib is published to [PVPHub](https://maven.pvphub.me/#/tofaa/io/github/tofaa2). Snapshots are available on pushes to the main branch, and stable releases are published on GitHub releases.
-Many thanks to the team at PVP Hub and @Bram1903 for hosting EntityLib
+EntityLib builds are available on [PVPHub](https://maven.pvphub.me/#/tofaa/io/github/tofaa2) and TypewriterMC's [Maven Repository](https://maven.typewritermc.com/)
+Snapshots are available on pushes to the main branch, and stable releases are published on GitHub releases.
+Many thanks to the team at PVP Hub and @Bram1903 for hosting the official EntityLib builds.
 
 Current Version: `3.0.3-SNAPSHOT`
 
@@ -17,7 +18,7 @@ Gradle (Groovy DSL):
 ```groovy
 repositories {
     mavenCentral()
-    maven("https://maven.pvphub.me/tofaa")
+    maven { url 'https://maven.typewritermc.com/beta' }
 }
 
 dependencies {
@@ -29,7 +30,7 @@ Gradle (Kotlin DSL):
 ```kotlin
 repositories {
     mavenCentral()
-    maven("https://maven.pvphub.me/tofaa")
+    maven(url = "https://maven.typewritermc.com/beta")
 }
 
 dependencies {
@@ -38,6 +39,12 @@ dependencies {
 ```
 
 Maven:
+```xml
+<repository>
+    <id>typewriter</id>
+    <url>https://maven.typewritermc.com/beta</url>
+</repository>
+```
 ```xml
 <dependency>
     <groupId>io.github.tofaa2</groupId>
