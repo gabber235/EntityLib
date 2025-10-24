@@ -8,13 +8,13 @@ You can easily use EntityLib platformless by using the `api` or `common` module
 
 If you like EntityLib and or want to sponsor me, visit my [ko-fi page](https://ko-fi.com/tofaa) :D 
 
-EntityLib builds are available on [Jitpack](https://jitpack.io/#Tofaa2/EntityLib) and my own [Maven Repository](https://maven.evokegames.gg/#/snapshots/me/tofaa/entitylib)
-The examples below use my repository, open the jitpack link for its group information.
+EntityLib builds are available on [Jitpack](https://jitpack.io/#Tofaa2/EntityLib) and TypewriterMC's [Maven Repository](https://maven.typewritermc.com/)
+The examples below use the TypewriterMC repository, open the jitpack link for its group information.
 
 Gradle (Groovy DSL):
 ```groovy
 repositories {
-    maven { url 'https://maven.evokegames.gg/snapshots' }
+    maven { url 'https://maven.typewritermc.com/beta' }
 }
 
 dependencies {
@@ -25,7 +25,7 @@ dependencies {
 Gradle (Kotlin DSL):
 ```kotlin
 repositories {
-    maven(url = "https://maven.evokegames.gg/snapshots")
+    maven(url = "https://maven.typewritermc.com/beta")
 }
 
 dependencies {
@@ -34,6 +34,12 @@ dependencies {
 ```
 
 Maven:
+```xml
+<repository>
+    <id>typewriter</id>
+    <url>https://maven.typewritermc.com/beta</url>
+</repository>
+```
 ```xml 
 <dependency>
     <groupId>me.tofaa.entitylib</groupId>

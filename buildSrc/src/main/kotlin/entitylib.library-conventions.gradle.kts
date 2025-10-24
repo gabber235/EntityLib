@@ -48,10 +48,25 @@ publishing {
 
     repositories {
         maven {
-            url = uri("https://maven.evokegames.gg/snapshots")
-            credentials {
-                username = System.getenv("TYCOONS_REPO_USER")
-                password = System.getenv("TYCOONS_REPO_PASS")
+            name = "TypewriterBeta"
+            url = uri("https://maven.typewritermc.com/beta")
+            credentials(PasswordCredentials::class) {
+                username = project.findProperty("typewriterBetaUsername") as String?
+                password = project.findProperty("typewriterBetaPassword") as String?
+            }
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+        maven {
+            name = "TypewriterReleases"
+            url = uri("https://maven.typewritermc.com/releases")
+            credentials(PasswordCredentials::class) {
+                username = project.findProperty("typewriterReleasesUsername") as String?
+                password = project.findProperty("typewriterReleasesPassword") as String?
+            }
+            authentication {
+                create<BasicAuthentication>("basic")
             }
         }
     }
