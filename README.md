@@ -14,18 +14,18 @@ The examples below use the TypewriterMC repository, open the jitpack link for it
 Gradle (Groovy DSL):
 ```groovy
 repositories {
-    maven { url 'https://maven.typewritermc.com/beta' }
+    maven { url 'https://maven.typewritermc.com/external' }
 }
 
 dependencies {
-    implementation 'me.tofaa.entitylib:<platform>:<latest-release-version'
+    implementation 'me.tofaa.entitylib:<platform>:<latest-release-version>'
 }
 ```
 
 Gradle (Kotlin DSL):
 ```kotlin
 repositories {
-    maven(url = "https://maven.typewritermc.com/beta")
+    maven(url = "https://maven.typewritermc.com/external")
 }
 
 dependencies {
@@ -37,7 +37,7 @@ Maven:
 ```xml
 <repository>
     <id>typewriter</id>
-    <url>https://maven.typewritermc.com/beta</url>
+    <url>https://maven.typewritermc.com/external</url>
 </repository>
 ```
 ```xml 
