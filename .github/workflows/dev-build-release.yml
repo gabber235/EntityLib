@@ -14,8 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TYCOONS_REPO_USER: ${{ secrets.EVOKE_REPO_USERNAME }}
-      TYCOONS_REPO_PASS: ${{ secrets.EVOKE_REPO_PASSWORD }}
+      ORG_GRADLE_PROJECT_typewriterBetaUsername: ${{ secrets.TYPEWRITER_REPO_USERNAME }}
+      ORG_GRADLE_PROJECT_typewriterBetaPassword: ${{ secrets.TYPEWRITER_REPO_PASSWORD }}
+      ORG_GRADLE_PROJECT_typewriterReleasesUsername: ${{ secrets.TYPEWRITER_REPO_USERNAME }}
+      ORG_GRADLE_PROJECT_typewriterReleasesPassword: ${{ secrets.TYPEWRITER_REPO_PASSWORD }}
     steps:
       - name: Clone project
         uses: actions/checkout@v4
@@ -32,7 +34,7 @@ jobs:
 
       - name: Run build & publish with Gradle Wrapper
         if: github.ref == 'refs/heads/master'
-        run: chmod +x ./gradlew && ./gradlew publishAllPublicationsToMavenRepository
+        run: chmod +x ./gradlew && ./gradlew publish
 
       - name: Run build with Gradle Wrapper
         if: github.ref != 'refs/heads/master'
