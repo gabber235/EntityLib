@@ -28,37 +28,37 @@ public class LivingEntityMeta extends EntityMeta {
 
 
     public int getPotionEffectColor() {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         return super.metadata.getIndex(offset(OFFSET,2), 0);
     }
 
     public void setPotionEffectColor(int value) {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         super.metadata.setIndex(offset(OFFSET,2), EntityDataTypes.INT, value);
     }
 
     public void setPotionEffectColor(int red, int green, int blue) {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         setPotionEffectColor(red << 16 + green << 8 + blue);
     }
 
     public boolean isPotionEffectAmbient() {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         return super.metadata.getIndex(offset(OFFSET,3), false);
     }
 
     public void setPotionEffectAmbient(boolean value) {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         super.metadata.setIndex(offset(OFFSET,3), EntityDataTypes.BOOLEAN, value);
     }
 
     public int getArrowCount() {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         return super.metadata.getIndex(offset(OFFSET,4), 0);
     }
 
     public void setArrowCount(int value) {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         super.metadata.setIndex(offset(OFFSET,4), EntityDataTypes.INT, value);
     }
 
@@ -67,52 +67,52 @@ public class LivingEntityMeta extends EntityMeta {
     }
 
     public HumanoidArm getActiveHand() {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         return getMaskBit(OFFSET, ACTIVE_HAND_BIT) ? HumanoidArm.LEFT : HumanoidArm.RIGHT;
     }
 
     public void setActiveHand(HumanoidArm value) {
-        isVersionNewer(ServerVersion.V_1_9);
+        ensureVersionNewer(ServerVersion.V_1_9);
         setMaskBit(OFFSET, ACTIVE_HAND_BIT, value == HumanoidArm.LEFT);
     }
 
     public boolean isInRiptideSpinAttack() {
-        isVersionNewer(ServerVersion.V_1_13);
+        ensureVersionNewer(ServerVersion.V_1_13);
         return getMaskBit(OFFSET, IS_IN_SPIN_ATTACK_BIT);
     }
 
     public void setInRiptideSpinAttack(boolean value) {
-        isVersionNewer(ServerVersion.V_1_13);
+        ensureVersionNewer(ServerVersion.V_1_13);
         setMaskBit(OFFSET, IS_IN_SPIN_ATTACK_BIT, value);
     }
 
     public Optional<Vector3i> getBedPosition() {
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
         return super.metadata.getIndex(offset(OFFSET,6), Optional.empty());
     }
 
     public void setBedPosition(Vector3i value) {
-        isVersionNewer(ServerVersion.V_1_14);
+        ensureVersionNewer(ServerVersion.V_1_14);
         super.metadata.setIndex(offset(OFFSET,6), EntityDataTypes.OPTIONAL_BLOCK_POSITION, value == null ? Optional.empty() : Optional.of(value));
     }
 
     public int getBeeStingerCount() {
-        isVersionNewer(ServerVersion.V_1_15);
+        ensureVersionNewer(ServerVersion.V_1_15);
         return super.metadata.getIndex(offset(OFFSET,5), 0);
     }
 
     public void setBeeStingerCount(int value) {
-        isVersionNewer(ServerVersion.V_1_15);
+        ensureVersionNewer(ServerVersion.V_1_15);
         super.metadata.setIndex(offset(OFFSET,5), EntityDataTypes.INT, value);
     }
 
     public boolean isHandActive() {
-        isVersionNewer(ServerVersion.V_1_15);
+        ensureVersionNewer(ServerVersion.V_1_15);
         return getMaskBit(OFFSET, IS_HAND_ACTIVE_BIT);
     }
 
     public void setHandActive(boolean value) {
-        isVersionNewer(ServerVersion.V_1_15);
+        ensureVersionNewer(ServerVersion.V_1_15);
         setMaskBit(OFFSET, IS_HAND_ACTIVE_BIT, value);
     }
 

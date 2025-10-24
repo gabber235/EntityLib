@@ -23,7 +23,7 @@ public class DisplayMeta extends EntityMeta {
 
     public DisplayMeta(int entityId, Metadata metadata) {
         super(entityId, metadata);
-        isVersionNewer(ServerVersion.V_1_19_3);
+        ensureVersionNewer(ServerVersion.V_1_19_3);
     }
 
     public int getInterpolationDelay() {
