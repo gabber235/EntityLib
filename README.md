@@ -18,7 +18,7 @@ Gradle (Groovy DSL):
 ```groovy
 repositories {
     mavenCentral()
-    maven { url 'https://maven.typewritermc.com/beta' }
+    maven { url 'https://maven.typewritermc.com/external' }
 }
 
 dependencies {
@@ -30,7 +30,7 @@ Gradle (Kotlin DSL):
 ```kotlin
 repositories {
     mavenCentral()
-    maven(url = "https://maven.typewritermc.com/beta")
+    maven(url = "https://maven.typewritermc.com/external")
 }
 
 dependencies {
@@ -42,7 +42,7 @@ Maven:
 ```xml
 <repository>
     <id>typewriter</id>
-    <url>https://maven.typewritermc.com/beta</url>
+    <url>https://maven.typewritermc.com/external</url>
 </repository>
 ```
 ```xml

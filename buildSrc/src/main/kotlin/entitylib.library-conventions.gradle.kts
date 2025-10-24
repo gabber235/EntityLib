@@ -52,22 +52,11 @@ tasks {
 publishing {
     repositories {
         maven {
-            name = "TypewriterBeta"
-            url = uri("https://maven.typewritermc.com/beta")
+            name = "TypewriterExternal"
+            url = uri("https://maven.typewritermc.com/external")
             credentials(PasswordCredentials::class) {
-                username = project.findProperty("typewriterBetaUsername") as String?
-                password = project.findProperty("typewriterBetaPassword") as String?
-            }
-            authentication {
-                create<BasicAuthentication>("basic")
-            }
-        }
-        maven {
-            name = "TypewriterReleases"
-            url = uri("https://maven.typewritermc.com/releases")
-            credentials(PasswordCredentials::class) {
-                username = project.findProperty("typewriterReleasesUsername") as String?
-                password = project.findProperty("typewriterReleasesPassword") as String?
+                username = project.findProperty("typewriterExternalUsername") as String?
+                password = project.findProperty("typewriterExternalPassword") as String?
             }
             authentication {
                 create<BasicAuthentication>("basic")

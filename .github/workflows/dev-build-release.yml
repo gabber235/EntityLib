@@ -14,10 +14,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ORG_GRADLE_PROJECT_typewriterBetaUsername: ${{ secrets.TYPEWRITER_REPO_USERNAME }}
-      ORG_GRADLE_PROJECT_typewriterBetaPassword: ${{ secrets.TYPEWRITER_REPO_PASSWORD }}
-      ORG_GRADLE_PROJECT_typewriterReleasesUsername: ${{ secrets.TYPEWRITER_REPO_USERNAME }}
-      ORG_GRADLE_PROJECT_typewriterReleasesPassword: ${{ secrets.TYPEWRITER_REPO_PASSWORD }}
+      ORG_GRADLE_PROJECT_typewriterExternalUsername: ${{ secrets.TYPEWRITER_REPO_USERNAME }}
+      ORG_GRADLE_PROJECT_typewriterExternalPassword: ${{ secrets.TYPEWRITER_REPO_PASSWORD }}
     steps:
       - name: Clone project
         uses: actions/checkout@v4
